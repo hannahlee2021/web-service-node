@@ -108,9 +108,6 @@ let drinks ={
             drinkName: "espresso",
             recipe: {
                 espresso: 1,
-                hotWater: 0,
-                steamMilk: 0,
-                milkFoam: 0
             }
            
         },
@@ -119,9 +116,7 @@ let drinks ={
             drinkName: "americano",
             recipe: {
                 espresso: 1,
-                hotWater: 1,
-                steamMilk: 0,
-                milkFoam: 0
+                hotWater: 2,
             }
            
         },
@@ -130,7 +125,6 @@ let drinks ={
             drinkName: "cappuccino",
             recipe: {
                 espresso: 1,
-                hotWater: 0,
                 steamMilk: 0.5,
                 milkFoam: 1
             }
@@ -140,9 +134,7 @@ let drinks ={
             drinkName: "macchiato",
             recipe: {
                 espresso: 1,
-                hotWater: 0,
-                steamMilk: 0,
-                milkFoam: 1
+                milkFoam: 4
             }
         },
 
@@ -150,8 +142,7 @@ let drinks ={
             drinkName: "latte",
             recipe: {
                 espresso: 1,
-                hotWater: 0,
-                steamMilk: 1,
+                steamMilk: 2,
                 milkFoam: 0.5
             }
         },
@@ -160,15 +151,35 @@ let drinks ={
             drinkName: "flatWhite",
             recipe: {
                 espresso: 1,
-                hotWater: 0,
-                steamMilk: 1,
-                milkFoam: 0
+                steamMilk: 2,
             }
-        }
+        },
+        "mocha": {
+            drinkName: "mocha",
+            recipe: {
+                espresso: 1,
+                chocolate: 0.25,
+                steamMilk: 1,
+            }
+        },
 
+        "cortado": {
+            drinkName: "cortado",
+            recipe: {
+                espresso:1,
+                steamMilk:1,
+                honey: 0.25,
+                vanilla: 0.25
+            }
+        },
 
-    
-       
+        "affogato": {
+            drinkName: "affogato",
+            recipe: {
+                espresso: 1,
+                iceCream: 2
+            }
+        } 
     }
 
 
@@ -189,14 +200,88 @@ app.get('/drinkName/:drinkName', (req,res) => {
             recipe.push(drinks[key].recipe)
             
         }
-        // res.send(`${drinkName}: ${drinks.recipe} `)
+        else if (req.params.drinkName == ":espresso") {
+            app.get("/kaokun", (req,res) => {
+                const greeting = kaokun.greeting()
+                
+                // const random = kaokun.random();
+                res.send(greeting)
+            } )
+        }
+        else if (req.params.drinkName == ":americano") {
+            app.get("/kaokun", (req,res) => {
+                
+                const bored = kaokun.bored()
+                // const random = kaokun.random();
+                res.send(bored)
+            } )
+        }
+        else if (req.params.drinkName == ":cappuccino") {
+            app.get("/kaokun", (req,res) => {
+                
+                const sad = kaokun.sad()
+                // const random = kaokun.random();
+                res.send(sad)
+            } )
+        }
+        else if (req.params.drinkName == ":macchiato") {
+            app.get("/kaokun", (req,res) => {
+                
+                const love = kaokun.love()
+                // const random = kaokun.random();
+                res.send(love)
+            } )
+        }
+        else if (req.params.drinkName == ":latte") {
+            app.get("/kaokun", (req,res) => {
+                
+                const happy = kaokun.happy()
+                // const random = kaokun.random();
+                res.send(happy)
+            } )
+        }
+        else if (req.params.drinkName == ":flatWhite") {
+            app.get("/kaokun", (req,res) => {
+                
+                const hurt = kaokun.hurt()
+                // const random = kaokun.random();
+                res.send(hurt)
+            } )
+        }
+        else if (req.params.drinkName == ":mocha") {
+            app.get("/kaokun", (req,res) => {
+                
+                const cute = kaokun.cute()
+                // const random = kaokun.random();
+                res.send(cute)
+            } )
+        }
+        else if (req.params.drinkName == ":cortado") {
+            app.get("/kaokun", (req,res) => {
+                
+                const silly = kaokun.silly()
+                // const random = kaokun.random();
+                res.send(silly)
+            } )
+        }
+        else if (req.params.drinkName == ":affogato") {
+            app.get("/kaokun", (req,res) => {
+                
+                const fun = kaokun.fun()
+                // const random = kaokun.random();
+                res.send(fun)
+            } )
+        }
+       
         
     })
     res.send(recipe)
 })
 
 // app.get("/kaokun", (req,res) => {
-//     const happy = kaokun.happy();
+//     const greeting = kaokun.greeting()
+//     const happy = kaokun.greeting()
+//     // const random = kaokun.random();
 //     res.send(happy)
 // } )
 
