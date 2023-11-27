@@ -1,6 +1,6 @@
 # web-service-node
 
-drink options:
+drinkName options:
 - espresso -> kaokun.greeting()
 - americano -> kaokun.bored()
 - cappuccino -> kaokun.sad()
