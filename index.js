@@ -1,5 +1,6 @@
 import express from 'express'
 import * as kaokun from 'kaokun'
+import cors from 'cors'
 import { random as randomKao } from 'kaokun';
 import { happy as happyKao } from 'kaokun';
 const app = express();
@@ -13,9 +14,15 @@ app.get("/", (req,res) => {
     console.log("working")
 } )
 
+
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}` )
   })
+
+  app.use(cors({
+    origin: '*'
+}));
 
 
 // let cafe = {
